@@ -636,8 +636,8 @@ class OpenAiResponsesToChatCompletionStreamIterator(BaseModelResponseIterator):
                         index=0,
                         type="function",
                         function=ChatCompletionToolCallFunctionChunk(
-                            name=parsed_chunk.get("name", None),
-                            arguments=parsed_chunk.get("arguments", ""),
+                            name=output_item.get("name", None),
+                            arguments=output_item.get("arguments", ""),
                         ),
                     ),
                     is_finished=False,
@@ -682,7 +682,7 @@ class OpenAiResponsesToChatCompletionStreamIterator(BaseModelResponseIterator):
                         index=0,
                         type="function",
                         function=ChatCompletionToolCallFunctionChunk(
-                            name=parsed_chunk.get("name", None),
+                            name=output_item.get("name", None),
                             arguments="",  # responses API sends everything again, we don't
                         ),
                     ),
